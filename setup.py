@@ -31,7 +31,7 @@ setuptools.setup(
         'shiboken2>=5.15.2',
         'six>=1.16.0',
         'statsmodels>=0.12.2',
-        'xlrd>=2.0.1'],
+        'xlrd>=1.2.0'],
     entry_points = {
         "console_scripts": [
             "genexp = genexpa.main:main"
