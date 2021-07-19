@@ -4,8 +4,7 @@ from genexpa.uis.uis.ReadFromCombinedDialogUI import Ui_Dialog
 from PySide2.QtWidgets import QDialog, QFileDialog
 from PySide2 import QtCore
 
-from genexpa.uis import LineModelDialog
-from genexpa.core import helpers
+from genexpa.uis.LineModelDialog import LineModelDialog
 from genexpa.core import explib
 
 

@@ -71,34 +71,37 @@ def read_combined_input(ifile, format='excel', sep=","):
     GeneB     x       x      x          x
     ...
     """
+    def split_to_cols(df_to_split):
+        return [df_to_split[[col]] for col in df_to_split.columns]
+
+    def df_flip_rename(df_to_flip):
+        gene, line = df_to_flip.index[0], df_to_flip.columns[0]
+        df_fliped = df_to_flip.T
+
+        df_fliped.index = [gene]
+        df_fliped.columns = [line for _ in df_fliped.columns]
+        return df_fliped
+
+    def transpose_gene(gene_df):
+        col_dfs = split_to_cols(gene_df)
+        fliped_dfs = [df_flip_rename(col_df) for col_df in col_dfs]
+        return pd.concat(fliped_dfs, axis=1)
+
+    def transpose_combined(raw_input):
+        genes = raw_input.index.unique()
+        return pd.concat([transpose_gene(raw_input.loc[gene]) for gene in genes])
+
     if format == 'csv':
-        res = pd.read_csv(ifile, sep=sep, index_col=0)
+        input_df = pd.read_csv(ifile, sep=sep, index_col=0)
     elif format == 'excel':
-        res = pd.read_excel(ifile, index_col=0)
+        input_df = pd.read_excel(ifile, index_col=0)
     else:
         ValueError("format: {}, is not supported!".format(format))
 
-    res.index.name = "Gene"
+    input_df.columns = input_df.columns.astype(str)
+    input_df.index = input_df.index.astype(str)
 
-    basedf = None
-    for gene_name, _df in res.groupby("Gene"):
-        gene_line = []
-        column_name_line = []
-
-        for col in _df.columns:
-            expression_values = _df[col].values.T
-            column_name_line.extend([col]*len(expression_values))
-            gene_line.extend(expression_values)
-
-        df_row = pd.DataFrame(data=[gene_line], columns=column_name_line)
-        df_row.index = [gene_name]
-
-        if basedf is not None:
-            basedf = pd.concat([basedf, df_row])
-        else:
-            basedf = df_row
-
-    return basedf
+    return transpose_combined(input_df)
 
 def append_group_index(df_ref):
     """
