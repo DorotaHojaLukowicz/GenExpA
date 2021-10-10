@@ -68,6 +68,7 @@ class MainWindowApp(QMainWindow):
     def __init__(self, app):
         super().__init__()
 
+
         self.actions = Actions()
         self.system = System(self, app, self.actions)
 
@@ -80,11 +81,11 @@ class MainWindowApp(QMainWindow):
 
         self.remove_validator = QIntValidator(0,100)
         self.ui.lineEditRemoveRep.setValidator(self.remove_validator)
-        self.ui.lineEditSampleRepetition.setValidator(self.remove_validator)
+        #self.ui.lineEditSampleRepetition.setValidator(self.remove_validator)
 
         self.ui.lineEditConfidence.setText(str(self.system.parameters_data.confidence))
         self.ui.lineEditRemoveRep.setText(str(self.system.parameters_data.remove_rep))
-        self.ui.lineEditSampleRepetition.setText(str(self.system.parameters_data.sample_rep))
+        #self.ui.lineEditSampleRepetition.setText(str(self.system.parameters_data.sample_rep))
 
         self.ui.checkSelectBest.setChecked(self.system.parameters_data.select_best)
 
@@ -123,8 +124,10 @@ class MainWindowApp(QMainWindow):
         self.ui.lineEditRemoveRep.textChanged.connect(
             lambda x:self.parameters_changed(x, "remove_rep"))
 
+        """
         self.ui.lineEditSampleRepetition.textChanged.connect(
             lambda x: self.parameters_changed(x, "sample_rep"))
+        """
 
         self.ui.checkSelectBest.stateChanged.connect(
             lambda x: self.parameters_changed(x, "select_best"))

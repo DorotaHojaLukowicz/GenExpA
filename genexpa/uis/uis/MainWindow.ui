@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>794</width>
-    <height>879</height>
+    <height>778</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,7 +26,7 @@
          <x>0</x>
          <y>0</y>
          <width>774</width>
-         <height>810</height>
+         <height>715</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -348,49 +348,6 @@
             </layout>
            </item>
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_7">
-             <item>
-              <widget class="QLabel" name="label_9">
-               <property name="toolTip">
-                <string>Select check repetition for a single sample</string>
-               </property>
-               <property name="statusTip">
-                <string>Select check repetition for a single sample</string>
-               </property>
-               <property name="text">
-                <string>Single sample repetition</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="lineEditSampleRepetition">
-               <property name="maximumSize">
-                <size>
-                 <width>40</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>3</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_7">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
-           </item>
-           <item>
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
               <widget class="QCheckBox" name="checkSelectBest">
@@ -642,7 +599,7 @@
      <x>0</x>
      <y>0</y>
      <width>794</width>
-     <height>27</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -652,7 +609,6 @@
     <addaction name="actionRead_from_combined_input"/>
     <addaction name="actionLoad_Quantified"/>
     <addaction name="separator"/>
-    <addaction name="actionActivate_license"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>

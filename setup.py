@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='GenExpA',
-    version='0.0.2',
+    version='0.0.5',
     author='Dawid Maciazek',
     description="Comprehensive tool based on the new workflow for qPCR data analysis",
     long_description=long_description,
@@ -25,8 +25,8 @@ setuptools.setup(
         'pyparsing>=2.4.7',
         'python-dateutil>=2.8.1',
         'pytz>=2021.1',
-        'scikit-posthocs>=0.6.7',
         'scipy>=1.5.4',
+        'scikit-posthocs>=0.6.7',
         'seaborn>=0.11.1',
         'shiboken2>=5.15.2',
         'six>=1.16.0',

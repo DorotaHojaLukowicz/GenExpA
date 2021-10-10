@@ -211,7 +211,7 @@ class ParametersData(QObject):
         # internal data
         self.confidence = 0.05
         self.remove_rep = 0
-        self.sample_rep = 3
+        self.sample_rep = 1
         self.select_best = False
 
     def is_valid(self):
@@ -221,8 +221,10 @@ class ParametersData(QObject):
         if self.remove_rep < 0:
             return False
 
+        """
         if self.sample_rep < 0:
             return False
+        """
 
         return True
 
@@ -240,11 +242,13 @@ class ParametersData(QObject):
             except:
                 self.remove_rep = -1
 
+            """
         elif param_str == "sample_rep":
             try:
                 self.sample_rep = int(value)
             except:
                 self.sample_rep = -1
+            """
 
         elif param_str == "select_best":
             self.select_best = bool(value)
